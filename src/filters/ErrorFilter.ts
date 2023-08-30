@@ -12,8 +12,11 @@ export class HttpExceptionFilter implements ExceptionFilterMethods {
     const error = this.mapError(exception);
     const headers = this.getHeaders(exception);
 
-    console.log(ctx.request.route.toString());
-
+    try {
+      console.log(ctx.request.route.toString());
+    } catch (e) {
+      error.status = 500;
+    }
     ctx.response.setHeaders(headers).status(error.status).body(error);
   }
 

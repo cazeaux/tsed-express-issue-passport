@@ -2,7 +2,17 @@
 
 The issue is described in <https://github.com/tsedio/tsed/issues/2416>.
 
-## When the Authorization header is not set, the ctx.request.route is OK
+## Integration tests
+
+Run:
+
+```shell
+yarn test
+```
+
+## To test manually
+
+### When the Authorization header is not set, the ctx.request.route is OK
 
 To reproduce it:
 
@@ -12,7 +22,7 @@ curl --request GET --url http://127.0.0.1:8080/
 
 You will get a normal 401 HTTP error.
 
-## When the Authorization header is set with wrong credentials, the ctx.request.route is undefined (but the ctx.request.url is OK)
+### When the Authorization header is set with wrong credentials, the ctx.request.route is undefined (but the ctx.request.url is OK)
 
 To reproduce it:
 
